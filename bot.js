@@ -48,6 +48,7 @@ bot.on('message', (msg) => {
         async function random() {
             let word = await randonWord(name)
             bot.sendMessage(chatId, `${word[0].title} - ${word[0].detail}`)
+            bot.sendMessage(chatId, `Продолжим?💡 Нажми => /new`)
         }
         random()
     }
