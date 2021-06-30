@@ -76,7 +76,7 @@ bot.on('message', (msg) => {
         bot.sendMessage(chatId, helpText)
     }
 
-    if(text !== '/new' && text !== '/start' && text !== '/help' && text !== '/learn'){
+    if(text !== '/new' && text !== '/start' && text !== '/help' && text !== '/learn' && text !== '/send-to-all-users'){
 
         let getInfo = new Promise(res =>{
             res(start(text))
@@ -124,6 +124,7 @@ async function interval(users, num = 0, chatId, usersName, wordOfDay){
     for(let i = num; i < userCount; i++) {
         count ++
 
+        bot.sendMessage(users[i], `Слово дня 🤓🧐🎓`)
         bot.sendMessage(users[i], `${wordOfDay.title} - ${wordOfDay.detail}`)
         if(count >= userCount) {
             await bot.sendMessage(chatId, 'Рассылка закончена!')
